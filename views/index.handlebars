@@ -1,0 +1,57 @@
+<h1> Eat Da Burger </h1>
+<img src="http://wallpapercave.com/wp/4VHUSH8.jpg">
+
+<h2> EAT THAT BURGER </h2>
+<ul>
+  {{#each burgers}}
+    {{#unless this.devoured}}
+
+      <li>
+
+        <p> ID: {{this.id}} </p>
+        <p> NAME: {{this.burger_name}} </p>
+
+        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit">Devour It!</button>
+        </form>
+
+
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<br>
+
+<h2> WE DONE ATE THESE BURGERS! </h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if this.devoured}}
+
+      <li>
+
+        <p> ID: {{this.id}} </p>
+        <p> NAME: {{this.burger_name}} </p>
+
+        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="false">
+        </form>
+
+      </li>
+
+    {{/if}}
+  {{/each}}
+</ul>
+
+
+<form class="create-update-form" action="burgers/create" method="POST">
+
+  <div class="form-group">
+    <label for="bu">Burger Name:</label>
+    <input type="text" id="new_burger" name="burger_name">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

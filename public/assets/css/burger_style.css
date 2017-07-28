@@ -1,0 +1,36 @@
+li {
+  background: #FAEBD7;
+  margin: 5px;
+  padding: 5px;
+}
+body {
+  background-color: #fe8300;
+  background: linear-gradient(to bottom right, #fe8300, yellow);
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  background: #f7fafa;
+  margin: 5px;
+  padding: 5px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+h1 {
+  color: #f7fafa;
+  font-size: 100px;
+  text-align: center;
+}
+h2 {
+  color: #f7fafa;
+}
+img {
+  height: 250px;
+  width: 400px;
+  margin-left: 500px;
+}
