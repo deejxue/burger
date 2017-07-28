@@ -29,27 +29,19 @@ var orm = {
             console.log("Result all: ", result);
         });
     },
+
   // Add new burger to table burgers with create ORM
   create: function(table, cols, vals, cb) {
-        var queryString = 'INSERT INTO ' + table; 
-
-         queryString +=  ' (';
-         queryString += cols.toString();  
-         queryString += ') ';
-         queryString += 'VALUES (';
-         queryString += listBurgers(vals.length);
-         queryString += ') ';
-
-          // queryString = 'INSERT INTO burgers (burger_name) VALUES ?'
-         console.log(queryString); 
-
-         connection.query(queryString, vals, function(err, result) {
+    var queryString = 'INSERT INTO ' + table + ' (' + cols.toString() +') ' + 'VALUES (' + listBurgers(vals.length) + ') ';
+        console.log(queryString)
+          
+        connection.query(queryString, vals, function(err, result) {
            if (err) throw err;
            cb(result);
            console.log("Result new: ", result);
          });
     },
-  // Update the burgers table with update ORM  
+  // Update the burgers table with update ORMyyy  
     update : function(table, objColVals, condition, cb) {
         var queryString = 'UPDATE ' + table;
         // UPDATE burgers SET devoured= true WHERE id= req.params.id

@@ -1,19 +1,18 @@
-<h1> Eat Da Burger </h1>
-<img src="http://wallpapercave.com/wp/4VHUSH8.jpg">
+<h1> Eat Dat Burger!!!! </h1>
+<img src="../assets/img/burger.jpg">
 
-<h2> EAT THAT BURGER </h2>
+<h2> Pick a burger!! </h2>
 <ul>
   {{#each burgers}}
     {{#unless this.devoured}}
 
       <li>
 
-        <p> ID: {{this.id}} </p>
-        <p> NAME: {{this.burger_name}} </p>
+        <p><b> {{this.id}} : </b>{{this.burger_name}} </p>
 
         <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="devoured" value="true">
-          <button type="submit">Devour It!</button>
+          <button type="submit">Chow down!</button>
         </form>
 
 
@@ -24,7 +23,7 @@
 
 <br>
 
-<h2> WE DONE ATE THESE BURGERS! </h2>
+<h2> MMMM, these were good! </h2>
 
 <ul>
   {{#each burgers}}
@@ -32,8 +31,7 @@
 
       <li>
 
-        <p> ID: {{this.id}} </p>
-        <p> NAME: {{this.burger_name}} </p>
+        <p><b> {{this.id}} : </b>{{this.burger_name}} </p>
 
         <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="devoured" value="false">
@@ -44,14 +42,15 @@
     {{/if}}
   {{/each}}
 </ul>
+<br>
 
-
-<form class="create-update-form" action="burgers/create" method="POST">
-
-  <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="new_burger" name="burger_name">
+  <form class="create-update-form" action="burgers/create" method="POST">
+      <h2 class="add-title">Add a Burger</h2>
+      <div class="form-group">
+        <label for="newBurger">Burger Name:</label>
+        <input type="hidden" name="devoured" value="0">
+        <input type="text" id="newBurger" name="burger_name">
+        <input type="submit" class="btn btn-info" value="Add Burger">
+      </form>
   </div>
 
-  <button type="submit">Submit</button>
-</form>
